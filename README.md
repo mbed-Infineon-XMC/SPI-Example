@@ -1,6 +1,11 @@
-# Blinky Example
+# SPI Example
 
-The following guide describes the steps to run the first Blinky program on the XMC 4500 Relax Kit board from Infineon.
+The following guide describes how to communicate with the on board SPI-Flash memory.
+
+In this example a byte (0xAA) is programes to flash address 0x00. Afterwards a byte is read from address 0x00.
+If the write byte is equal to the read byte LED1 is turnd on, if not LED2 is turned on.
+
+>> Check the Datasheet from the FLASH memory. [LINK](http://www.mouser.com/ds/2/100/002-00650_S25FL032P_32-Mbit_3.0_V_Flash_Memory_Dat-933047.pdf)
 
 ## Step 1: Download mbed CLI
 
@@ -8,10 +13,10 @@ The following guide describes the steps to run the first Blinky program on the X
 
 ## Step 2: Import startup project
 
-Import mbed Blinky project from GitHub.
+Import SPI-Example project from GitHub.
 
 ```
-mbed import https://github.com/mbed-Infineon-XMC/Blinky-Example.git
+mbed import https://github.com/mbed-Infineon-XMC/SPI-Example.git
 ```
 
 ## Step 3: Install ARM GCC toolchain
@@ -27,7 +32,7 @@ Example:
 
 Navigate into the project folder and execute the following command:
 ```
-cd Blinky-Example.git/
+cd SPI-Example.git/
 mbed compile -m XMC_4500_RELAX_KIT -t GCC_ARM
 ```
 mbed creates a BUID directory where you can find the executables (bin, elf, hex ...).
@@ -40,25 +45,8 @@ mbed creates a BUID directory where you can find the executables (bin, elf, hex 
 $ JLinkExe
 J-LINK> device xmc4500-1024
 J-LINK> h
-J-Link> loadfile Blinky-Example.git.hex
+J-Link> loadfile SPI-Example.git.hex
 J-Link> r
 J-Link> g
 ```
 * Choose SWD, 4000kHz as interface settings!!
-
-## Step 6: If successful..
-
-When everything has gone well, LED1 will blink with 2Hz.
-
-## Step 7: Eclipse IDE & debugging
-
-If you want to compile and debug the project with eclipse follow this guidline:
-
-* First export and create a makefile for the eclipse platform.
-```
-mbed export -i eclipse_gcc_arm -m XMC_4500_RELAX_KIT
-```
-* Install Eclipse C/C++ IDE
-* [Install Plugins](https://github.com/mhorauer/XMC4500-Barebone-Projects/blob/master/Setup/plugins.asciidoc) - The following tutorial could be helpful.
-
-* [Debugging with eclipse](https://docs.mbed.com/docs/mbed-os-handbook/en/5.3/debugging/debugging_eclipse_pyocd/) - Also take a look to the mbed debuging guidlines.
