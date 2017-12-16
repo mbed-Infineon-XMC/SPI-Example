@@ -2,10 +2,10 @@
 
 The following guide describes how to communicate with the on board SPI-Flash memory.
 
-In this example a byte (0xAA) is programes to flash address 0x00. Afterwards a byte is read from address 0x00.
+In this example a byte (0xAA) is programed to flash address 0x00. Afterwards a byte is read from address 0x00.
 If the write byte is equal to the read byte LED1 is turnd on, if not LED2 is turned on.
 
->> Check the Datasheet from the FLASH memory. [LINK](http://www.mouser.com/ds/2/100/002-00650_S25FL032P_32-Mbit_3.0_V_Flash_Memory_Dat-933047.pdf)
+> Check the Datasheet from the FLASH memory. [LINK](http://www.mouser.com/ds/2/100/002-00650_S25FL032P_32-Mbit_3.0_V_Flash_Memory_Dat-933047.pdf)
 
 ## Step 1: Download mbed CLI
 
